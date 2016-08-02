@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="./public/stylesheet.css" />
+		<title>All Music</title>
+	</head>
+	<body>
+		<div class="pg_heading"><h1>Curated Music Collection</h1></div>
+		<div class="tbl_container">
+			<div>
+				<table class="tbl_style">
+					<thead>
+						<tr>
+							<th colspan="8">Music Collection</th>
+						</tr>
+						<tr>
+							<th>Title</th>
+							<th>Artist</th>
+							<th>Album</th>
+							<th>Genre</th>
+							<th>Duration</th>
+							<th>Song Rating</th>
+							<th>Album Rating</th>
+							<th>Date Added</th>
+						</tr>
+					</thead>
+					<tbody class="tblrows">
+						<% @tbldata.each do |x|	%>
+							<tr>
+
+								<%8.times.x.each{ |key,value| puts "<td> #{value} </td>" } %>
+							</tr>
+						<%end%>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
+

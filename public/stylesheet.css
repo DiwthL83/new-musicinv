@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+
+/* Styling of page layout */
+body{
+	border: 2px solid red;
+}
+
+
+.pg_heading{
+	font-family: sans-serif;
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
+
+}
+
+
+/* Styling of music table */
+.tbl_container{
+	background-color: khaki;
+
+}
+
+.tbl_style{
+	margin: auto;
+	border: 1px dashed blue;
+	font-family: Sans-serif;
+}
+
+tr{
+	border: 1px dashed blue;
+	text-align: center;
+}
+
+th{
+	border: 1px dashed blue;
+	text-align: center;
+}
+
+
+.tblrows{
+
+}
+
+
+
+/* Navigation-related styling */
+.nav_style{
+	width: 100;
+	background-color: khaki;
+	border: 2px solid red;
+	border-radius: 7px;
+	text-align: center;
+	font-family: Sans-serif;
+	font-weight: bold;
+	font-size: 1.25em;
+}
+
+nav a{
+	text-decoration: none;
+	color: black;
+	padding: 5px;
+}
+
+nav a:hover{
+	color: white;
+	background-color: red;
+}
+
+
+
+
+</style>
+</html>

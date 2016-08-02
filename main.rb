@@ -29,7 +29,26 @@ class MyApp < Sinatra::Base
 end
 
 require 'tilt/erb'
+require 'sqlite3'
+require 'pry'
+
+# Opens or creates the musicdb database based on if test environment is test or prod.
+if MyApp.settings.environment == :test
+	DB = SQLite3::Database.new "musicdb_tst.db"
+elsif MyApp.settings.environment == :development
+	DB = SQLite3::Database.new "musicdb_dev.db"
+end
+
+# Create songs table if it doesn't exist.
+DB.execute('create table if not exists songs (title varchar(50),artist varchar(50),album varchar(50),genre varchar(50),duration varchar(5),songrating smallint,albumrating smallint,insert_tstamp varchar(25))')
+
+# Setting so query results will return as a hash.
+DB.results_as_hash = true
 
 Dir[File.dirname(__FILE__) + '/app/models/*.rb'].each {|file| require file }
 
 Dir[File.dirname(__FILE__) + '/app/controllers/*.rb'].each {|file| require file }
+
+binding.pry
+
+puts 'Done'
