@@ -4,12 +4,12 @@
 
 
 /* Styling of page layout */
-body{
+.main-container{
 	border: 2px solid red;
 }
 
 
-.pg_heading{
+.pg-heading{
 	font-family: sans-serif;
 	font-weight: bold;
 	width: 100%;
@@ -19,27 +19,21 @@ body{
 
 
 /* Styling of music table */
-.tbl_container{
+.tbl-container{
 	background-color: khaki;
 
 }
 
-.tbl_style{
+.tbl-style{
 	margin: auto;
 	border: 1px dashed blue;
 	font-family: Sans-serif;
 }
 
-tr{
+th, tr, td{
 	border: 1px dashed blue;
 	text-align: center;
 }
-
-th{
-	border: 1px dashed blue;
-	text-align: center;
-}
-
 
 .tblrows{
 
@@ -48,7 +42,7 @@ th{
 
 
 /* Navigation-related styling */
-.nav_style{
+.nav-style{
 	width: 100;
 	background-color: khaki;
 	border: 2px solid red;
@@ -69,7 +63,6 @@ nav a:hover{
 	color: white;
 	background-color: red;
 }
-
 
 
 

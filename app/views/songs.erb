@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href="./public/stylesheet.css" />
+		<link type="text/css" rel="stylesheet" href="stylesheet.css" />
 		<title>All Music</title>
 	</head>
 	<body>
-		<div class="pg_heading"><h1>Curated Music Collection</h1></div>
-		<div class="tbl_container">
+		<div class="pg-heading"><h1>Curated Music Collection</h1></div>
+		<div class="tbl-container">
 			<div>
-				<table class="tbl_style">
+				<table class="tbl-style">
 					<thead>
 						<tr>
-							<th colspan="8">Music Collection</th>
+							<th colspan="9">Music Collection</th>
 						</tr>
 						<tr>
+							<th>ID</th>
 							<th>Title</th>
 							<th>Artist</th>
 							<th>Album</th>
@@ -25,16 +26,18 @@
 						</tr>
 					</thead>
 					<tbody class="tblrows">
+						<!-- Outer loop iterates 3 times. -->
 						<% @tbldata.each do |x|	%>
+						<!-- Inner loop iterates 9 times -->
 							<tr>
-
-								<%8.times.x.each{ |key,value| puts "<td> #{value} </td>" } %>
+								<% x.each do |key, value| %>
+									<td><%= value %></td>
+								<% end %>
 							</tr>
-						<%end%>
+						<% end %>
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</body>
 </html>
-
