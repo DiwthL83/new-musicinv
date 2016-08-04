@@ -10,6 +10,13 @@ class Music
 		@albumrating = albumrating
 	end
 
+
+	def musicinfo
+		@title = @title.split.map { |i| i.capitalize }.join(' ')
+		@album = @album.split.map { |i| i.capitalize }.join(' ')
+		@artist = @artist.split.map { |i| i.capitalize }.join(' ')
+		return "#{@title}||#{@artist}||#{@album}||#{@genre}||#{@lengthmin}||#{@lengthsec}||#{@songrating}||#{@albumrating}\n"
+	end
 	# Method to grab all records from the songs table in the database.
 	#
 	# Returns an array of hashes, with each hash representing a row of data from the songs table in the database.
@@ -52,8 +59,11 @@ class Music
 	#
 	#
 	#
-	def saveNewRec(title,artist,album,genre,duration,songrating,albumrating)
-		DB.execute('insert into songs (title,artist,album,genre,duration,songrating,albumrating,insert_tstamp) values ("#{@title}" ,"#{@artist}" ,"#{@talbum}" ,"#{@genre}" ,"#{@duration}" ,#{@songrating} ,#{@albumrating},strftime(\'%Y-%m-%d %H:%M:%S\',\'now\'))')
+	def saveNewRec()
+		# x = "insert into songs (title,artist,album,genre,duration,songrating,albumrating,insert_tstamp) values (\"#{@title}\" ,\"#{@artist}\" ,\"#{@album}\" ,\"#{@genre}\" ,\"#{@duration}\" ,\"#{@songrating}\" ,\"#{@albumrating}\",strftime(\'%Y-%m-%d %H:%M:%S\',\'now\'))"
+
+		# binding.pry 
+		DB.execute("insert into songs (title,artist,album,genre,duration,songrating,albumrating,insert_tstamp) values (\"#{@title}\" ,\"#{@artist}\" ,\"#{@album}\" ,\"#{@genre}\" ,\"#{@duration}\" ,\"#{@songrating}\" ,\"#{@albumrating}\",strftime(\'%Y-%m-%d %H:%M:%S\',\'now\'))")
 	end
 
 	def deleteSong()

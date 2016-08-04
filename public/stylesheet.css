@@ -43,6 +43,7 @@ th, tr, td{
 
 /* Navigation-related styling */
 .nav-style{
+	/*display: inline-block;*/
 	width: 100;
 	background-color: khaki;
 	border: 2px solid red;

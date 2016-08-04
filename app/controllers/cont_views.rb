@@ -6,51 +6,44 @@ MyApp.get "/" do
 end
 
 MyApp.get "/songs" do
+	
 	@tbldata = Music.all
  
 	erb :"/songs"
 end
 
-# ---- Controls for add forms below ----
+# ---- Controls for modify_recs below ----
 
 MyApp.post "/add_song" do
+	@title = params[:title_p]
+	@artist = params[:artist_p]
+	@album = params[:album_p]
+	@genre = params[:genre_p]
+	@duration = params[:duration_p]
+	@songrating = params[:songrating_p]
+	@albumrating = params[:albumrating_p]
 
-	@titleParam = params[:titleParam]
-	@artistParam = params[:artistParam]
-	@albumParam = params[:albumParam]
-	@genreParam = params[:genreParam]
-	@minuteParam = params[:minuteParam]
-	@secondParam = params[:secondParam]
-	@rateSongParam = params[:rateSongParam]
-	@rateAlbumParam = params[:rateAlbumParam]
+	# Instance created. Should I distinguish params and their variables with addl characters?
+	song_instance = Music.new(@title,@artist,@album,@genre,@duration,@songrating,@albumrating)
 
-	@song = Song.new(@titleParam,@artistParam,@albumParam,@genreParam,@minuteParam,@secondParam,@rateSongParam,@rateAlbumParam)
+	# binding.pry
+	# Method call adds record to the songs table using the params in the song_instance. 
+	song_instance.saveNewRec
 
-	# TODO - Replace song instance with new one directly below.
-	saveNewRec(title,artist,album,genre,duration,songrating,albumrating)
-	
-	
-	songinfo = @song.songinfo
-	
-	
-	# TODO - Figure out why != doesn't work.
-	if songinfo == "||||||||||||||"
-	else
-		songAdd2File(songinfo)
-	end
-
-	x = createFileArray()
-
-  	erb :"/songs", :locals => {'x' => x}
-
+  erb :"/songs"
 end
+
 
 MyApp.get "/add_song" do
 
-	createFileWithHeader
+	# TODO - Include a timed redirect somewhere in the process?
 
-	erb :"add_forms/add_song"
-
+	erb :"modify_recs/add_song"
 end
+
+
+
+
+
 # binding.pry
 # puts 'Done'
