@@ -39,8 +39,12 @@ elsif MyApp.settings.environment == :development
 	DB = SQLite3::Database.new "musicdb_dev.db"
 end
 
-# Create songs table if it doesn't exist.
+# Create tables for database if they don't exist.
 DB.execute('create table if not exists songs (title varchar(50),artist varchar(50),album varchar(50),genre varchar(50),duration varchar(5),songrating varchar(1),albumrating varchar(1),insert_tstamp varchar(25))')
+
+DB.execute('create table if not exists album (title varchar(50),artist varchar(50),album varchar(50),genre varchar(50),duration varchar(5),songrating varchar(1),albumrating varchar(1),insert_tstamp varchar(25))')
+
+DB.execute('create table if not exists artist (artist varchar(50),album varchar(50),genre varchar(50),duration varchar(5),songrating varchar(1),albumrating varchar(1),insert_tstamp varchar(25))')
 
 # Setting so query results will return as a hash.
 DB.results_as_hash = true

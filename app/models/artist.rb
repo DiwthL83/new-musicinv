@@ -1,4 +1,4 @@
-class Music
+class Artist
 	def initialize(title,artist,album,genre,duration,songrating,albumrating)
 		# @id = id
 		@title = title
@@ -9,19 +9,14 @@ class Music
 		@songrating = songrating
 		@albumrating = albumrating
 	end
-
-	def musicinfo
-		@title = @title.split.map { |i| i.capitalize }.join(' ')
-		@album = @album.split.map { |i| i.capitalize }.join(' ')
-		@artist = @artist.split.map { |i| i.capitalize }.join(' ')
-		return "#{@title}||#{@artist}||#{@album}||#{@genre}||#{@lengthmin}||#{@lengthsec}||#{@songrating}||#{@albumrating}\n"
-	end
-
-	# Method to grab all records from the songs table in the database.
+	
 	#
-	# Returns an array of hashes, with each hash representing a row of data from the songs table in the database.
+	#
+	#
+	#
+	#
 	def self.all
-		z = DB.execute('select rowid, * from songs')
+		z = DB.execute('select * from artist')
 		keys = %w(rowid title artist album genre duration songrating albumrating insert_tstamp)
 		z.each do |y| 
 			y.delete_if{|key, value| !keys.include?(key.to_s) } 
@@ -33,10 +28,8 @@ class Music
 	#
 	#
 	#
-	def saveNewSong
+	def saveNewArtist
 		DB.execute("insert into songs (title,artist,album,genre,duration,songrating,albumrating,insert_tstamp) values (\"#{@title}\" ,\"#{@artist}\" ,\"#{@album}\" ,\"#{@genre}\" ,\"#{@duration}\" ,\"#{@songrating}\" ,\"#{@albumrating}\",strftime(\'%Y-%m-%d %H:%M:%S\',\'now\'))")
 	end
 
-	def deleteSong
-	end
 end

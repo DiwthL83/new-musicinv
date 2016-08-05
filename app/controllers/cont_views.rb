@@ -6,9 +6,8 @@ MyApp.get "/" do
 end
 
 MyApp.get "/songs" do
-	
 	@tbldata = Music.all
- 
+
 	erb :"/songs"
 end
 
@@ -23,20 +22,17 @@ MyApp.post "/add_song" do
 	@songrating = params[:songrating_p]
 	@albumrating = params[:albumrating_p]
 
-	# Instance created. Should I distinguish params and their variables with addl characters?
 	song_instance = Music.new(@title,@artist,@album,@genre,@duration,@songrating,@albumrating)
 
-	# binding.pry
-	# Method call adds record to the songs table using the params in the song_instance. 
-	song_instance.saveNewRec
+	song_instance.saveNewSong
+
+	@tbldata = Music.all
 
   erb :"/songs"
 end
 
 
 MyApp.get "/add_song" do
-
-	# TODO - Include a timed redirect somewhere in the process?
 
 	erb :"modify_recs/add_song"
 end
