@@ -6,7 +6,7 @@ MyApp.get "/" do
 end
 
 MyApp.get "/songs" do
-	@tbldata = Music.all
+	@tbldata = Song.all
 
 	erb :"/songs"
 end

@@ -1,13 +1,24 @@
-module ClassMethodsORM
-  def self.find(id)
-    records = DB.execute("SELECT * FROM #{table} WHERE id = #{id}")
-    record = records[0]
+# module MusicClassORM
+#   def self.find(id)
+#     records = DB.execute("SELECT * FROM #{table} WHERE id = #{id}")
+#     record = records[0]
 
-    Task.new(fields)
-  end
-end
+#     <Class>.new(fields)
+#   end
 
-module InstanceMethodsORM
-  def self.update(attributes)
-  end
-end
+#   def method_name
+  	
+#   end
+# end
+
+
+
+
+# module MusicInstORM
+#   def self.update(attributes)
+#   end
+
+#   def method_name
+  	
+#   end
+# end
